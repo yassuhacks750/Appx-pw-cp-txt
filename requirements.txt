@@ -24,3 +24,6 @@ py-tgcalls==1.2.9
 python-decouple==3.8
 Flask==3.0.3
 gunicorn==22.0.0
+fastapi
+uvicorn
+telethon
