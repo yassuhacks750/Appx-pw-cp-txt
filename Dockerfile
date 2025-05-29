@@ -1,37 +1,25 @@
-# Use a Python 3.9.6 Alpine base image
-FROM python:3.9.6-alpine3.14
+# Use official Python base image
+FROM python:3.11-slim
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy all files from the current directory to the container's /app directory
-COPY . .
+# Install system dependencies
+RUN apt-get update && apt-get install -y build-essential bash
 
-# Install necessary dependencies
-RUN apk add --no-cache \
-    gcc \
-    libffi-dev \
-    musl-dev \
-    ffmpeg \
-    aria2 \
-    make \
-    g++ \
-    cmake && \
-    wget -q https://github.com/axiomatic-systems/Bento4/archive/v1.6.0-639.zip && \
-    unzip v1.6.0-639.zip && \
-    cd Bento4-1.6.0-639 && \
-    mkdir build && \
-    cd build && \
-    cmake .. && \
-    make -j$(nproc) && \
-    cp mp4decrypt /usr/local/bin/ &&\
-    cd ../.. && \
-    rm -rf Bento4-1.6.0-639 v1.6.0-639.zip
+# Copy requirements
+COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir --upgrade -r requirements.txt \
-    && python3 -m pip install -U yt-dlp
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir yt-dlp
 
-# Set the command to run the application
-CMD ["sh", "-c", "gunicorn app:app & python3 main.py"]
+# Copy the rest of the code
+COPY . .
+
+# Expose the port (FastAPI default is 8000)
+EXPOSE 8000
+
+# Command to run the app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
