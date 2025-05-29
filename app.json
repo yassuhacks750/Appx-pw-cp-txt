@@ -1,8 +1,8 @@
 
 {
-    "name": "Repo",
+    "name": "appx pw cp txt ",
     "description": "PW Without Purchase Repo",
-    "repository": "https://github.com/",
+    "repository": "https://github.com/yassuhacks750/Appx-pw-cp-txt",
     "keywords": [
         "telegram bot",
         "pyrogram"
@@ -10,19 +10,19 @@
     "env": {
         "API_ID":{
             "description": "Get your telegram API ID from https://my.telegram.org",
-            "value":"28485705"
+            "value":"22849789"
         },
         "API_HASH":{
             "description":"Get your telegram API HASH from https://my.telegram.org",
-		    "value":"26d76803d487d6d0cc818cf191fa7518"
+		    "value":"0fc127c6055acd59f00ec6c229e1e3c4"
         },
         "BOT_TOKEN":{
             "description":"Get from BotFather",
-            "value":"6582971212:AAG_K_Iec_0nlI83g_Sq0Aq3DXwcv6Zs4lQ"
+            "value":"8171819457:AAEQPzj19DDqD6Xd0Xm7nTTZvgLgE-tjWww"
         },
         "AUTH_USERS":{
             "description":"Admin/Owner/Friends ID Seperate by ','  Ex: 44578878,8878899",
-            "value":"6211690957"
+            "value":"1144684909"
         }
     }
 
