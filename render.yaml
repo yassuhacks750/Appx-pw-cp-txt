@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: TXT LEECH 750 
+    name: Appx-pw-cp-txt 
     plan: free
     env: docker
     dockerfilePath: Dockerfile
-    repo: https://github.com/yassuhacks750/txt-leech750
+    repo: https://github.com/yassuhacks750/Appx-pw-cp-txt
     branch: main
     autoDeploy: false
     envVars:
