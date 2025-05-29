@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: TXT LEECH 750 
+    plan: free
+    env: docker
+    dockerfilePath: Dockerfile
+    repo: https://github.com/yassuhacks750/txt-leech750
+    branch: main
+    autoDeploy: false
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      #- key: WEBHOOK
+        #sync: false
+      - key: PORT
+        value: 8000  # Default port value, update if needed
+        
